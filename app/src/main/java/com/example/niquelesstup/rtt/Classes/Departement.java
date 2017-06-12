@@ -5,6 +5,15 @@ package com.example.niquelesstup.rtt.Classes;
  */
 
 public class Departement {
+
+    public Departement() {
+    }
+    public Departement(int id, String code, String nom) {
+        this.id = id;
+        this.code = code;
+        this.nom = nom;
+    }
+
     private int id;
     private String code;
     private String nom;

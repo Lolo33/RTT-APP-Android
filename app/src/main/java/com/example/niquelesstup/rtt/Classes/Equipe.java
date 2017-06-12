@@ -6,13 +6,13 @@ import java.util.ArrayList;
  * Created by Niquelesstup on 06/06/2017.
  */
 
-public class Equipes {
+public class Equipe {
     private int id;
     private String nom;
     private String code;
     private boolean isPrive;
     private String pass;
-    private ArrayList<Membres> ListeMembres;
+    private ArrayList<Membre> ListeMembres;
 
     public int getId() {
         return id;
@@ -49,10 +49,10 @@ public class Equipes {
         this.pass = pass;
     }
 
-    public ArrayList<Membres> getListeMembres() {
+    public ArrayList<Membre> getListeMembres() {
         return ListeMembres;
     }
-    public void setListeMembres(ArrayList<Membres> listeMembres) {
+    public void setListeMembres(ArrayList<Membre> listeMembres) {
         ListeMembres = listeMembres;
     }
 }

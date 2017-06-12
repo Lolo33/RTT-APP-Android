@@ -5,6 +5,15 @@ package com.example.niquelesstup.rtt.Classes;
  */
 
 public class Avatar {
+
+    public Avatar(int id, String url, int statut) {
+        this.id = id;
+        this.url = url;
+        this.statut = statut;
+    }
+    public Avatar() {
+    }
+
     private int id;
     private String url;
     private int statut;

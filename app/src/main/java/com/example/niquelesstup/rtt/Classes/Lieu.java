@@ -6,11 +6,25 @@ package com.example.niquelesstup.rtt.Classes;
 
 public class Lieu {
     private int id;
-    private int cp;
+    private String cp;
     private String ville;
     private String nom;
     private String adresseL1;
     private String adresseL2;
+
+    public Lieu(int id, String cp, String ville, String nom, String adresseL1, String adresseL2, Departement departement, String logo) {
+        this.id = id;
+        this.cp = cp;
+        this.ville = ville;
+        this.nom = nom;
+        this.adresseL1 = adresseL1;
+        this.adresseL2 = adresseL2;
+        this.departement = departement;
+        this.logo = logo;
+    }
+    public Lieu() {
+    }
+
     private Departement departement;
     private String logo;
 
@@ -21,10 +35,10 @@ public class Lieu {
         this.id = id;
     }
 
-    public int getCp() {
+    public String getCp() {
         return cp;
     }
-    public void setCp(int cp) {
+    public void setCp(String cp) {
         this.cp = cp;
     }
 
@@ -69,4 +83,11 @@ public class Lieu {
     public void setLogo(String logo) {
         this.logo = logo;
     }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return this.nom.toString();
+    }
+
 }

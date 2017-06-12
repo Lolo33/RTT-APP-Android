@@ -5,10 +5,37 @@ package com.example.niquelesstup.rtt.Classes;
  */
 
 public class Compte {
+
+    public Compte(int id, String codeBic, String codeIban, String nom, String prenom, String adresseL1, String codePostal, String ville) {
+        this.id = id;
+        this.codeBic = codeBic;
+        this.codeIban = codeIban;
+        this.membre = membre;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresseL1 = adresseL1;
+        this.codePostal = codePostal;
+        this.ville = ville;
+    }
+    public Compte() {
+    }
+    public Compte(int id, String codeBic, String codeIban, String nom, String prenom, String adresseL1, String adresseL2, String codePostal, String ville) {
+        this.id = id;
+        this.codeBic = codeBic;
+        this.codeIban = codeIban;
+        this.membre = membre;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresseL1 = adresseL1;
+        this.adresseL2 = adresseL2;
+        this.codePostal = codePostal;
+        this.ville = ville;
+    }
+
     private int id;
     private String codeBic;
     private String codeIban;
-    private Membres membre;
+    private Membre membre;
     private String nom;
     private String prenom;
     private String adresseL1;
@@ -38,10 +65,10 @@ public class Compte {
         this.codeIban = codeIban;
     }
 
-    public Membres getMembre() {
+    public Membre getMembre() {
         return membre;
     }
-    public void setMembre(Membres membre) {
+    public void setMembre(Membre membre) {
         this.membre = membre;
     }
 

@@ -5,10 +5,17 @@ package com.example.niquelesstup.rtt.Classes;
  */
 
 public class InfosMango {
+
+    public InfosMango(){}
+    public InfosMango(int id, String mangoUserId, String mangoWalletId) {
+        this.id = id;
+        this.mangoUserId = mangoUserId;
+        this.mangoWalletId = mangoWalletId;
+    }
+
     private int id;
-    private int mangoUserId;
-    private Membres membre;
-    private int mangoWalletId;
+    private String mangoUserId;
+    private String mangoWalletId;
 
     public int getId() {
         return id;
@@ -17,24 +24,17 @@ public class InfosMango {
         this.id = id;
     }
 
-    public int getMangoUserId() {
+    public String getMangoUserId() {
         return mangoUserId;
     }
-    public void setMangoUserId(int mangoUserId) {
+    public void setMangoUserId(String mangoUserId) {
         this.mangoUserId = mangoUserId;
     }
 
-    public Membres getMembre() {
-        return membre;
-    }
-    public void setMembre(Membres membre) {
-        this.membre = membre;
-    }
-
-    public int getMangoWalletId() {
+    public String getMangoWalletId() {
         return mangoWalletId;
     }
-    public void setMangoWalletId(int mangoWalletId) {
+    public void setMangoWalletId(String mangoWalletId) {
         this.mangoWalletId = mangoWalletId;
     }
 }

@@ -25,12 +25,12 @@ public class Evenement {
     private Compte compte;
     private InfosMango infosMango;
     private boolean isTarifEquipe;
-    private Membres organisateur1;
-    private Membres organisateur2;
+    private Membre organisateur1;
+    private Membre organisateur2;
     private String img;
     private String descriptif;
     private boolean isTournoi;
-    private ArrayList<Equipes> listeEquipes;
+    private ArrayList<Equipe> listeEquipes;
 
     public int getId() {
         return id;
@@ -144,17 +144,17 @@ public class Evenement {
         isTarifEquipe = tarifEquipe;
     }
 
-    public Membres getOrganisateur1() {
+    public Membre getOrganisateur1() {
         return organisateur1;
     }
-    public void setOrganisateur1(Membres organisateur1) {
+    public void setOrganisateur1(Membre organisateur1) {
         this.organisateur1 = organisateur1;
     }
 
-    public Membres getOrganisateur2() {
+    public Membre getOrganisateur2() {
         return organisateur2;
     }
-    public void setOrganisateur2(Membres organisateur2) {
+    public void setOrganisateur2(Membre organisateur2) {
         this.organisateur2 = organisateur2;
     }
 
@@ -179,10 +179,10 @@ public class Evenement {
         isTournoi = tournoi;
     }
 
-    public ArrayList<Equipes> getListeEquipes() {
+    public ArrayList<Equipe> getListeEquipes() {
         return listeEquipes;
     }
-    public void setListeEquipes(ArrayList<Equipes> listeEquipes) {
+    public void setListeEquipes(ArrayList<Equipe> listeEquipes) {
         this.listeEquipes = listeEquipes;
     }
 }
