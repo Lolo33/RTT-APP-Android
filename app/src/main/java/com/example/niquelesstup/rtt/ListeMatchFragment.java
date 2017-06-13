@@ -1,6 +1,8 @@
 package com.example.niquelesstup.rtt;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -43,8 +46,8 @@ import java.util.Map;
 public class ListeMatchFragment extends Fragment {
 
     View myView;
+    FragmentManager manager = getFragmentManager();
     private RequestQueue requestQueue;
-    //private ConfApi confApi;
     final String url = Globals.getApiUrl() + "/departements/" + Globals.getMembreConnecte().getDepartement() + "/lieux";
 
     public void setFont(TextView textView, String fontName) {
@@ -63,7 +66,7 @@ public class ListeMatchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.liste_matchs, container, false);
         final ListView listViewEvents = (ListView) myView.findViewById(R.id.listViewEvents);
-        ArrayList<Evenement> listeEvents = new ArrayList<Evenement>();
+        final ArrayList<Evenement> listeEvents = new ArrayList<Evenement>();
         //final TextView textAccueil = (TextView) myView.findViewById(R.id.textView2);
 
         requestQueue= Volley.newRequestQueue(getActivity().getApplicationContext());
@@ -77,10 +80,9 @@ public class ListeMatchFragment extends Fragment {
                             ArrayList<Lieu> listeLieux = JsonConverter.convertListeLieux(liste_lieux_json);
                             Iterator<Lieu> iterator = listeLieux.iterator();
                             //textAccueil.setText(listeLieux.get(0).getDepartement().toString());
-
                             ArrayAdapter<Lieu> adapter = new ArrayAdapter<Lieu>(getActivity(), android.R.layout.simple_list_item_1, listeLieux);
                             listViewEvents.setAdapter(adapter);
-
+                            LayoutInflater inflater = getActivity().getLayoutInflater();
                         }catch (JSONException ex){
                             //textAccueil.setText("Une erreur s'est produite.");
                         }

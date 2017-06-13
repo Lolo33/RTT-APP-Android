@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.niquelesstup.rtt.InscriptionActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <EditText
+            android:id="@+id/inputPseudoInsc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="66dp"
+            android:ems="10"
+            android:hint="Pseudo"
+            android:inputType="textPersonName"
+            android:textColorLink="@color/colorPrimary" />
+
+        <EditText
+            android:id="@+id/inputMail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/inputPseudoInsc"
+            android:layout_below="@+id/inputPseudoInsc"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="Adresse mail"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/inputPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/inputMail"
+            android:layout_below="@+id/inputPhone"
+            android:layout_marginTop="17dp"
+            android:ems="10"
+            android:hint="Mot de passe"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/inputPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/inputPassword"
+            android:layout_below="@+id/inputMail"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="Telephone"
+            android:inputType="phone" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/inputPassword"
+            android:layout_alignStart="@+id/inputPassword"
+            android:layout_below="@+id/inputPassword"
+            android:layout_marginTop="35dp"
+            android:background="@color/colorPrimary"
+            android:onClick="ClicBtnInscription"
+            android:text="Créer mon compte"
+            android:textColor="@android:color/background_light" />
+
+        <TextView
+            android:id="@+id/textViewReponse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="26dp" />
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

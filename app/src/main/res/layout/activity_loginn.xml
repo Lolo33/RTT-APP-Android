@@ -18,37 +18,37 @@
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/inputPseudo"
+            android:id="@+id/inputPseudoInsc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="149dp"
             android:ems="10"
             android:hint="Pseudo"
             android:inputType="textPersonName"
             android:textAllCaps="false"
             android:textColorHighlight="@color/colorPrimary"
             android:textColorLink="@color/colorPrimary"
-            android:textCursorDrawable="@color/colorPrimary"
-            android:layout_marginTop="149dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:textCursorDrawable="@color/colorPrimary" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            app:srcCompat="@drawable/logo_rtt"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" />
+            app:srcCompat="@drawable/logo_rtt" />
 
         <EditText
             android:id="@+id/inputPass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/inputPseudoInsc"
+            android:layout_below="@+id/inputPseudoInsc"
             android:ems="10"
             android:hint="Mot de passe"
-            android:inputType="textPassword"
-            android:layout_below="@+id/inputPseudo"
-            android:layout_alignStart="@+id/inputPseudo" />
+            android:inputType="textPassword" />
 
         <Button
             android:id="@+id/button"
@@ -70,9 +70,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/inputPass"
-            android:layout_alignEnd="@+id/inputPseudo"
-            android:layout_alignStart="@+id/inputPseudo"
+            android:layout_alignEnd="@+id/inputPseudoInsc"
+            android:layout_alignStart="@+id/inputPseudoInsc"
             android:layout_marginBottom="55dp"
             android:textColor="@android:color/holo_red_dark" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/button"
+            android:layout_alignStart="@+id/button"
+            android:layout_below="@+id/button"
+            android:layout_marginTop="22dp"
+            android:onClick="ClicBoutonInscription"
+            android:text="Pas encore inscrit ?"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
     </RelativeLayout>
 </FrameLayout>

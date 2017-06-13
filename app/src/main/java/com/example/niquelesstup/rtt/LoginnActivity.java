@@ -4,11 +4,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -20,18 +17,13 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.niquelesstup.rtt.Classes.Api.ConfApi;
 import com.example.niquelesstup.rtt.Classes.Api.JsonConverter;
-import com.example.niquelesstup.rtt.Classes.Avatar;
-import com.example.niquelesstup.rtt.Classes.Compte;
 import com.example.niquelesstup.rtt.Classes.Globals;
-import com.example.niquelesstup.rtt.Classes.InfosMango;
 import com.example.niquelesstup.rtt.Classes.Membre;
 import com.example.niquelesstup.rtt.Classes.Api.Token;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -60,16 +52,16 @@ public class LoginnActivity extends AppCompatActivity {
         confApi.newToken(getApplicationContext());
     }
 
-    public RequestQueue getVolleyRequestQueue() {
-        return requestQueue;
+    public void ClicBoutonInscription(View view){
+        Intent intentInscription = new Intent(this, InscriptionActivity.class);
+        startActivity(intentInscription);
     }
 
     public void ClicBoutonConnexion(View view){
-
         final TextView textView = (TextView) findViewById(R.id.textView4);
         tokenApi = confApi.getToken();
         //textView.setText(.toString());
-        EditText inputPseudo = (EditText) findViewById(R.id.inputPseudo);
+        EditText inputPseudo = (EditText) findViewById(R.id.inputPseudoInsc);
         EditText inputPass = (EditText) findViewById(R.id.inputPass);
         final String pseudoTv = inputPseudo.getText().toString();
         final String passTv = inputPass.getText().toString();

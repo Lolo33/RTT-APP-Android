@@ -81,6 +81,8 @@ public class JsonConverter {
                 Lieu unLieu = new Lieu(objetJson.getInt("id"), objetJson.getString("lieuCp"), objetJson.getString("lieuVille"),
                         objetJson.getString("lieuNom"), objetJson.getString("lieuAdresseL1"), objetJson.getString("lieuAdresseL2"),
                         dpt, objetJson.getString("lieuLogo"));
+                JSONArray listeEventJson = objetJson.getJSONArray("listeEvents");
+                unLieu.setCompteEvents(listeEventJson.length());
                 listeLieux.add(unLieu);
             }
         } catch (JSONException ex) {

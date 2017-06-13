@@ -11,6 +11,7 @@ public class Lieu {
     private String nom;
     private String adresseL1;
     private String adresseL2;
+    private int compteEvents;
 
     public Lieu(int id, String cp, String ville, String nom, String adresseL1, String adresseL2, Departement departement, String logo) {
         this.id = id;
@@ -87,7 +88,13 @@ public class Lieu {
     @Override
     public String toString() {
         // TODO Auto-generated method stub
-        return this.nom.toString();
+        return this.nom.toString() + " (" + compteEvents + ")";
     }
 
+    public int getCompteEvents() {
+        return compteEvents;
+    }
+    public void setCompteEvents(int compteEvents) {
+        this.compteEvents = compteEvents;
+    }
 }
