@@ -1,12 +1,13 @@
 package com.example.niquelesstup.rtt.Classes;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Niquelesstup on 07/06/2017.
  */
 
-public class MessageEquipe {
+public class MessageEquipe implements Serializable {
 
     private int $id;
     private Date date;

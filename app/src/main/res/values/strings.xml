@@ -3,6 +3,7 @@
 
     <string name="title_activity_loginn">ReserveTonTerrain</string>
     <string name="title_activity_menu">RTT - App</string>
+    <string name="title_activity_liste_match">Les matchs</string>
 
     <string name="navigation_drawer_open">Ouvrir la navigation</string>
     <string name="navigation_drawer_close">Fermer la navigation</string>

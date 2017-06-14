@@ -1,5 +1,6 @@
 package com.example.niquelesstup.rtt.Classes;
 
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,7 +9,35 @@ import java.util.Date;
  * Created by Niquelesstup on 06/06/2017.
  */
 
-public class Evenement {
+public class Evenement implements Serializable {
+
+    public Evenement(int id, String titre, int nbEquipes, int nbJoueursMax, int nbJoueursMin, float tarif, Lieu lieu, Date date, Time heureDebut, Time heureFin, boolean isPrive, String pass, boolean isPayable, Compte compte, InfosMango infosMango, boolean isTarifEquipe, Membre organisateur1, Membre organisateur2, String img, String descriptif, boolean isTournoi, ArrayList<Equipe> listeEquipes) {
+        this.id = id;
+        this.titre = titre;
+        this.nbEquipes = nbEquipes;
+        this.nbJoueursMax = nbJoueursMax;
+        this.nbJoueursMin = nbJoueursMin;
+        this.tarif = tarif;
+        this.lieu = lieu;
+        this.date = date;
+        this.heureDebut = heureDebut;
+        this.heureFin = heureFin;
+        this.isPrive = isPrive;
+        this.pass = pass;
+        this.isPayable = isPayable;
+        this.compte = compte;
+        this.infosMango = infosMango;
+        this.isTarifEquipe = isTarifEquipe;
+        this.organisateur1 = organisateur1;
+        this.organisateur2 = organisateur2;
+        this.img = img;
+        this.descriptif = descriptif;
+        this.isTournoi = isTournoi;
+        this.listeEquipes = listeEquipes;
+    }
+    public Evenement() {
+    }
+
     private int id;
     private String titre;
     private int nbEquipes;
@@ -31,6 +60,20 @@ public class Evenement {
     private String descriptif;
     private boolean isTournoi;
     private ArrayList<Equipe> listeEquipes;
+
+    public String getNombreEquipesString() {
+        return this.getListeEquipes().size() + " / " + this.getNbEquipes()  + " équipes";
+    }
+
+    public String getNombreJoueursString(){
+        int jMax = this.getNbJoueursMax() * this.getNbEquipes();
+        int jInscrits = 0;
+        for (int i=0; i<this.getListeEquipes().size(); i++){
+            int nbJoueurs = this.getListeEquipes().get(i).getListeMembres().size();
+            jInscrits += nbJoueurs;
+        }
+        return jInscrits + " / " + jMax + " joueurs";
+    }
 
     public int getId() {
         return id;

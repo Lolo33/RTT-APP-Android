@@ -1,8 +1,6 @@
 package com.example.niquelesstup.rtt;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -13,14 +11,36 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.niquelesstup.rtt.Classes.Api.JsonConverter;
+import com.example.niquelesstup.rtt.Classes.Api.Token;
+import com.example.niquelesstup.rtt.Classes.Departement;
 import com.example.niquelesstup.rtt.Classes.Globals;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    FragmentManager manager = getFragmentManager();
+    private RequestQueue requestQueue;
+    private FragmentManager manager = getFragmentManager();
+
+    public void clicBtnDpt(View view){
+
+        //lmF.actualiserListViewLieux(dpt);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +49,41 @@ public class MenuActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        manager.beginTransaction().replace(R.id.contentFrame, new ListeMatchFragment()).commit();
+        // Création de la liste des départements
+        final String url = Globals.getApiUrl() + "/departements";
+        requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.start();
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONArray departementsJson = new JSONArray(response);
+                            ArrayList<Departement> listeDpt = JsonConverter.convertListeDepartements(departementsJson);
+                            Globals.setListeDpt(listeDpt);
+                        }catch (JSONException ex){
+                            //textView.setText("Une erreur s'est produite.");
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                //textView.setText("Pseudo / mot de passe incorrects");
+            }
+        })
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Token token = Globals.getTokenApi();
+                Globals.setTokenApi(token);
+                Map<String, String> headers = new HashMap<String, String>();
+                headers.put("X-Auth-Token", token.getValue());
+                return headers;
+            }
+        };
+        requestQueue.add(stringRequest);
+
+        manager.beginTransaction().replace(R.id.contentFrame, new ListeComplexeFragment()).commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -85,8 +139,8 @@ public class MenuActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_liste_match) {
-            manager.beginTransaction().replace(R.id.contentFrame, new ListeMatchFragment()).commit();
-            //setContentView(R.layout.liste_matchs);
+            manager.beginTransaction().replace(R.id.contentFrame, new ListeComplexeFragment()).commit();
+            //setContentView(R.layout.liste_complexes);
         } else if (id == R.id.nav_gallery) {
             manager.beginTransaction().replace(R.id.contentFrame, new OrganiserMatchFragment()).commit();
         } else if (id == R.id.nav_slideshow) {

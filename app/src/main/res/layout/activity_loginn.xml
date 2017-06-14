@@ -30,7 +30,8 @@
             android:textAllCaps="false"
             android:textColorHighlight="@color/colorPrimary"
             android:textColorLink="@color/colorPrimary"
-            android:textCursorDrawable="@color/colorPrimary" />
+            android:textCursorDrawable="@color/colorPrimary"
+            android:theme="@style/EditTextTheme"/>
 
         <ImageView
             android:id="@+id/imageView"
@@ -48,6 +49,7 @@
             android:layout_below="@+id/inputPseudoInsc"
             android:ems="10"
             android:hint="Mot de passe"
+            android:theme="@style/EditTextTheme"
             android:inputType="textPassword" />
 
         <Button

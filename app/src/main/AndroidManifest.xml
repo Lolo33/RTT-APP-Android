@@ -26,8 +26,17 @@
         <activity
             android:name=".MenuActivity"
             android:label="@string/title_activity_menu"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".InscriptionActivity"></activity>
+        <activity android:name=".InscriptionActivity" />
+        <activity
+            android:name=".ListeMatchActivity"
+            android:parentActivityName=".MenuActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.niquelesstup.rtt.MenuActivity" />
+        </activity>
+        <activity android:name=".EvenementMatchActivity"></activity>
     </application>
 
 </manifest>

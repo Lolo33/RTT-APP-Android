@@ -1,10 +1,12 @@
 package com.example.niquelesstup.rtt.Classes;
 
+import java.io.Serializable;
+
 /**
  * Created by Niquelesstup on 07/06/2017.
  */
 
-public class EquipeMembre {
+public class EquipeMembre implements Serializable {
 
     private int $id;
     private int membre_id;

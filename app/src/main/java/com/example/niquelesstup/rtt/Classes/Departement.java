@@ -1,10 +1,12 @@
 package com.example.niquelesstup.rtt.Classes;
 
+import java.io.Serializable;
+
 /**
  * Created by Niquelesstup on 06/06/2017.
  */
 
-public class Departement {
+public class Departement implements Serializable {
 
     public Departement() {
     }

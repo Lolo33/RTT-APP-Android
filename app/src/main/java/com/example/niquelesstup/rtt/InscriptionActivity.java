@@ -3,9 +3,11 @@ package com.example.niquelesstup.rtt;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -38,8 +40,16 @@ public class InscriptionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inscription);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         confApi = new ConfApi();
         confApi.newToken(getApplicationContext());
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent myIntent = new Intent(getApplicationContext(), LoginnActivity.class);
+        startActivityForResult(myIntent, 0);
+        return true;
     }
 
     public void ClicBtnInscription(View view){
@@ -65,6 +75,7 @@ public class InscriptionActivity extends AppCompatActivity {
                     Membre leMembreInscrit = JsonConverter.convertMembre(membreJson);
                     Globals.setMembreConnecte(leMembreInscrit);
                     tvReponse.setText("Vous êtes maintenant connecté");
+                    Toast.makeText(getApplicationContext(),"Bienvenue sur RTT, " + leMembreInscrit.getPseudo() + " !",Toast.LENGTH_SHORT).show();
                     startActivity(IntentAccueil);
                 }catch (JSONException ex){
                     tvReponse.setText("Nous n'avons pas pu récupérer votre compte");

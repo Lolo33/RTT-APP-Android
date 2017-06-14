@@ -1,10 +1,12 @@
 package com.example.niquelesstup.rtt.Classes;
 
+import java.io.Serializable;
+
 /**
  * Created by Niquelesstup on 06/06/2017.
  */
 
-public class InfosMango {
+public class InfosMango implements Serializable {
 
     public InfosMango(){}
     public InfosMango(int id, String mangoUserId, String mangoWalletId) {
@@ -37,4 +39,5 @@ public class InfosMango {
     public void setMangoWalletId(String mangoWalletId) {
         this.mangoWalletId = mangoWalletId;
     }
+
 }

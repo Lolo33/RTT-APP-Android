@@ -1,10 +1,12 @@
 package com.example.niquelesstup.rtt.Classes;
 
+import java.io.Serializable;
+
 /**
  * Created by Niquelesstup on 06/06/2017.
  */
 
-public class Compte {
+public class Compte implements Serializable {
 
     public Compte(int id, String codeBic, String codeIban, String nom, String prenom, String adresseL1, String codePostal, String ville) {
         this.id = id;

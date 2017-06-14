@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -82,6 +83,8 @@ public class LoginnActivity extends AppCompatActivity {
                                 Membre membreConnecte = JsonConverter.convertMembre(membreAConnecter);
                                 //IntentAccueil.
                                 Globals.setMembreConnecte(membreConnecte);
+                                Globals.setDptSelect(membreConnecte.getDepartement());
+                                Toast.makeText(getApplicationContext(),"Heureux de te revoir, " + membreConnecte.getPseudo() + " !",Toast.LENGTH_SHORT).show();
                                 startActivity(IntentAccueil);
                             }
                         }catch (JSONException ex){
@@ -102,16 +105,16 @@ public class LoginnActivity extends AppCompatActivity {
                 params.put("membrePass", passTv);
                 return params;
             }
-        @Override
-        public Map<String, String> getHeaders() throws AuthFailureError {
-            Token token = confApi.getToken();
-            Globals.setTokenApi(token);
-            Map<String, String> headers = new HashMap<String, String>();
-            headers.put("X-Auth-Token", token.getValue());
-            return headers;
-        }
-    };
-    requestQueue.add(stringRequest);
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Token token = confApi.getToken();
+                Globals.setTokenApi(token);
+                Map<String, String> headers = new HashMap<String, String>();
+                headers.put("X-Auth-Token", token.getValue());
+                return headers;
+            }
+        };
+        requestQueue.add(stringRequest);
 
     }
 

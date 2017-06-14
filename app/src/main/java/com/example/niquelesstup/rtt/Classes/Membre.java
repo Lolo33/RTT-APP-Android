@@ -1,5 +1,6 @@
 package com.example.niquelesstup.rtt.Classes;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -7,7 +8,7 @@ import java.util.Date;
  * Created by Niquelesstup on 06/06/2017.
  */
 
-public class Membre {
+public class Membre implements Serializable {
 
     private int id;
 

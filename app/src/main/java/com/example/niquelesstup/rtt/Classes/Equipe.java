@@ -1,12 +1,25 @@
 package com.example.niquelesstup.rtt.Classes;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by Niquelesstup on 06/06/2017.
  */
 
-public class Equipe {
+public class Equipe implements Serializable {
+
+    public Equipe(int id, String nom, String code, boolean isPrive, String pass, ArrayList<Membre> listeMembres) {
+        this.id = id;
+        this.nom = nom;
+        this.code = code;
+        this.isPrive = isPrive;
+        this.pass = pass;
+        ListeMembres = listeMembres;
+    }
+    public Equipe() {
+    }
+
     private int id;
     private String nom;
     private String code;

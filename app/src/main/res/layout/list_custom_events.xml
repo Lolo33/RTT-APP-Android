@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:id="@+id/LL_Fond"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/TV_Tournoi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/TV_Titre"
+            android:paddingLeft="5dp"
+            android:text="Match"
+            android:textColor="@android:color/background_light">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/TV_Titre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="20"
+            android:paddingLeft="5dp"
+            android:text="Match Amical"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/TV_Prix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/TV_Titre"
+            android:layout_alignParentEnd="true"
+            android:paddingRight="5dp"
+            android:text="12.00 €"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/TV_Date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/TV_Tournoi"
+            android:paddingLeft="5dp"
+            android:text="de 12h à "
+            android:textColor="@android:color/background_light" />
+
+        <TextView
+            android:id="@+id/TV_NbEquipes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="TextView"
+            android:textColor="@android:color/background_light" />
+
+    </RelativeLayout>
+
+</LinearLayout>
+

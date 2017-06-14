@@ -1,10 +1,12 @@
 package com.example.niquelesstup.rtt.Classes;
 
+import java.io.Serializable;
+
 /**
  * Created by Niquelesstup on 06/06/2017.
  */
 
-public class Avatar {
+public class Avatar implements Serializable {
 
     public Avatar(int id, String url, int statut) {
         this.id = id;

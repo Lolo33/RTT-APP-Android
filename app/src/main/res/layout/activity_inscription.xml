@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@android:style/Theme.Holo.Light"
     tools:context="com.example.niquelesstup.rtt.InscriptionActivity">
 
     <RelativeLayout
@@ -22,7 +23,8 @@
             android:ems="10"
             android:hint="Pseudo"
             android:inputType="textPersonName"
-            android:textColorLink="@color/colorPrimary" />
+            android:textColorLink="@color/colorPrimary"
+            android:theme="@style/EditTextTheme" />
 
         <EditText
             android:id="@+id/inputMail"
@@ -33,7 +35,8 @@
             android:layout_marginTop="16dp"
             android:ems="10"
             android:hint="Adresse mail"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:theme="@style/EditTextTheme" />
 
         <EditText
             android:id="@+id/inputPassword"
@@ -44,7 +47,8 @@
             android:layout_marginTop="17dp"
             android:ems="10"
             android:hint="Mot de passe"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:theme="@style/EditTextTheme" />
 
         <EditText
             android:id="@+id/inputPhone"
@@ -55,7 +59,8 @@
             android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="Telephone"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:theme="@style/EditTextTheme" />
 
         <Button
             android:id="@+id/button2"
