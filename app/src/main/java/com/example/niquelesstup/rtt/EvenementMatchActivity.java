@@ -29,13 +29,21 @@ public class EvenementMatchActivity extends AppCompatActivity {
         TextView tvDateMatch = (TextView) findViewById(R.id.textViewDateMatch);
         TextView tvNbTeamMatch = (TextView) findViewById(R.id.textViewNbJoueursMatch);
         TextView tvOrgaMatch = (TextView) findViewById(R.id.textViewOrgaMatch);
+        TextView tvDescMatch = (TextView) findViewById(R.id.textViewDescriptifEvent);
 
         Globals.setFont(this, tvTitreMatch, "Champagne & Limousines Bold.ttf");
+
+        String str_prive = "Paiement sur place";
+        if (lEvenement.isPayable()){
+            str_prive = "Paiement en ligne";
+        }
 
         tvTitreMatch.setText(lEvenement.getTitre());
         tvLieuMatch.setText(lEvenement.getLieu().getNom());
         tvNbTeamMatch.setText(lEvenement.getNombreJoueursString());
         tvOrgaMatch.setText(lEvenement.getOrganisateur1().getPseudo());
+        tvDescMatch.setText(str_prive);
+
     }
 
     public boolean onOptionsItemSelected(MenuItem item){

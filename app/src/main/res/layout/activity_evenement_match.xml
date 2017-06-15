@@ -16,95 +16,129 @@
         <RelativeLayout
             android:id="@+id/header_match"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="170dp"
             android:background="@color/colorPrimaryDark">
+
+            <TextView
+                android:id="@+id/textViewDescriptifEvent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="190dp"
+                android:text="TextView"
+                android:textColor="@android:color/background_light"
+                android:layout_alignTop="@+id/textViewPrix"
+                android:layout_alignEnd="@+id/textViewNbJoueursMatch" />
+
+            <TextView
+                android:id="@+id/textViewOrgaMatch"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_alignStart="@+id/textViewDateMatch"
+                android:layout_below="@+id/imageView3"
+                android:layout_toStartOf="@+id/imageView3"
+                android:gravity="center_vertical"
+                android:paddingRight="5dp"
+                android:text="TextView"
+                android:textAlignment="viewEnd"
+                android:textColor="@android:color/background_light" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignBottom="@+id/textViewDateMatch"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/textViewTitreMatch"
+                app:srcCompat="@drawable/ic_menu_gallery" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textViewTitreMatch"
+                app:srcCompat="@android:drawable/star_big_on" />
+
+            <TextView
+                android:id="@+id/textViewDateMatch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/textViewPrix"
+                android:layout_below="@+id/textViewTitreMatch"
+                android:layout_toStartOf="@+id/imageView3"
+                android:gravity="center_vertical"
+                android:paddingRight="5dp"
+                android:text="Aujourd'hui"
+                android:textColor="@android:color/background_light" />
+
+            <TextView
+                android:id="@+id/textViewTitreMatch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="Match ..."
+                android:textAlignment="center"
+                android:textColor="@android:color/background_light"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewLieuMatch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/imageView2"
+                android:layout_below="@+id/textViewTitreMatch"
+                android:layout_toEndOf="@+id/imageView2"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:text="TextView"
+                android:textAlignment="gravity"
+                android:textColor="@android:color/background_light" />
+
+            <TextView
+                android:id="@+id/textViewPrix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/textViewDateMatch"
+                android:layout_below="@+id/textViewLieuMatch"
+                android:layout_marginTop="60dp"
+                android:text="12.00 €"
+                android:textColor="@android:color/background_light"
+                android:textSize="18sp"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:id="@+id/textViewNbJoueursMatch"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_below="@+id/imageView2"
+                android:layout_toEndOf="@+id/imageView2"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:text="TextView"
+                android:textColor="@android:color/background_light" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/imageView2"
+                app:srcCompat="@drawable/ic_menu_share" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/imageView3"
+                app:srcCompat="@drawable/ic_menu_send" />
 
         </RelativeLayout>
     </ScrollView>
-
-    <TextView
-        android:id="@+id/textViewTitreMatch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:paddingTop="5dp"
-        android:text="Match ..."
-        android:textAlignment="center"
-        android:textColor="@android:color/background_light"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textViewLieuMatch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView2"
-        android:layout_below="@+id/textViewTitreMatch"
-        android:layout_toEndOf="@+id/imageView2"
-        android:gravity="center"
-        android:text="TextView"
-        android:textAlignment="gravity"
-        android:textColor="@android:color/background_light" />
-
-    <TextView
-        android:id="@+id/textViewDateMatch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textViewPrix"
-        android:layout_below="@+id/textViewTitreMatch"
-        android:layout_toStartOf="@+id/imageView3"
-        android:gravity="center_vertical"
-        android:paddingRight="5dp"
-        android:text="Aujourd'hui"
-        android:textColor="@android:color/background_light" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/star_big_on"
-        android:layout_below="@+id/textViewTitreMatch"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:id="@+id/textViewPrix"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textViewDateMatch"
-        android:layout_below="@+id/textViewLieuMatch"
-        android:layout_marginTop="60dp"
-        android:text="12.00 €"
-        android:textColor="@android:color/background_light"
-        android:textSize="18sp"
-        android:textStyle="bold|italic" />
-
-    <TextView
-        android:id="@+id/textViewNbJoueursMatch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewLieuMatch"
-        android:layout_toEndOf="@+id/imageView2"
-        android:text="TextView"
-        android:textColor="@android:color/background_light" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_menu_gallery"
-        android:layout_below="@+id/textViewTitreMatch"
-        android:layout_alignParentEnd="true"
-        android:layout_alignBottom="@+id/textViewDateMatch" />
-
-    <TextView
-        android:id="@+id/textViewOrgaMatch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textViewDateMatch"
-        android:layout_below="@+id/textViewDateMatch"
-        android:text="TextView"
-        android:textColor="@android:color/background_light" />
 
 </android.widget.RelativeLayout>

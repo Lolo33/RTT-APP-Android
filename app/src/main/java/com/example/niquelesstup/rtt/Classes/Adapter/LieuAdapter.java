@@ -1,6 +1,7 @@
 package com.example.niquelesstup.rtt.Classes.Adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -41,9 +42,19 @@ public class LieuAdapter extends ArrayAdapter<Lieu> {
 
             TextView header = (TextView) v.findViewById(R.id.TV_Titre);
             TextView description = (TextView) v.findViewById(R.id.TV_Adresse);
+            TextView tvNbEvents = (TextView) v.findViewById(R.id.TV_Event);
 
-            header.setText(item.getNom() + "  (" + item.getCompteEvents() + ")");
+            header.setText(item.getNom());
             description.setText(item.getVille());
+            tvNbEvents.setText(String.valueOf(item.getCompteEvents()));
+            tvNbEvents.setPadding(10, 5, 10, 5);
+            if (item.getCompteEvents() != 0){
+                tvNbEvents.setBackgroundColor(Color.parseColor("#4682B4"));
+                tvNbEvents.setTextColor(Color.parseColor("#ffffff"));
+            }else{
+                tvNbEvents.setBackgroundColor(Color.parseColor("#ffffff"));
+                tvNbEvents.setTextColor(Color.parseColor("#000000"));
+            }
 
             return v;
         } catch (Exception ex) {
