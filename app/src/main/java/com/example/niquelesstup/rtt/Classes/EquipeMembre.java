@@ -8,24 +8,18 @@ import java.io.Serializable;
 
 public class EquipeMembre implements Serializable {
 
-    private int $id;
-    private int membre_id;
+    private int id;
     private Equipe equipe;
     private Membre membre;
     private StatutJoueur statutJoueur;
+    private boolean pay;
+    private String payId;
 
-    public int get$id() {
-        return $id;
+    public int getId() {
+        return id;
     }
-    public void set$id(int $id) {
-        this.$id = $id;
-    }
-
-    public int getMembre_id() {
-        return membre_id;
-    }
-    public void setMembre_id(int membre_id) {
-        this.membre_id = membre_id;
+    public void setId(int $id) {
+        this.id = $id;
     }
 
     public Equipe getEquipe() {
@@ -42,7 +36,6 @@ public class EquipeMembre implements Serializable {
         this.membre = membre;
     }
 
-
     public StatutJoueur getStatutJoueur() {
         return statutJoueur;
     }
@@ -50,4 +43,17 @@ public class EquipeMembre implements Serializable {
         this.statutJoueur = statutJoueur;
     }
 
+    public boolean isPay() {
+        return pay;
+    }
+    public void setPay(boolean pay) {
+        this.pay = pay;
+    }
+
+    public String getPayId() {
+        return payId;
+    }
+    public void setPayId(String payId) {
+        this.payId = payId;
+    }
 }

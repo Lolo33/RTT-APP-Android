@@ -9,13 +9,12 @@ import java.util.ArrayList;
 
 public class Equipe implements Serializable {
 
-    public Equipe(int id, String nom, String code, boolean isPrive, String pass, ArrayList<Membre> listeMembres) {
+    public Equipe(int id, String nom, String code, boolean isPrive, String pass) {
         this.id = id;
         this.nom = nom;
         this.code = code;
         this.isPrive = isPrive;
         this.pass = pass;
-        ListeMembres = listeMembres;
     }
     public Equipe() {
     }
@@ -25,7 +24,7 @@ public class Equipe implements Serializable {
     private String code;
     private boolean isPrive;
     private String pass;
-    private ArrayList<Membre> ListeMembres;
+    private ArrayList<EquipeMembre> ListeMembres;
 
     public int getId() {
         return id;
@@ -62,10 +61,10 @@ public class Equipe implements Serializable {
         this.pass = pass;
     }
 
-    public ArrayList<Membre> getListeMembres() {
+    public ArrayList<EquipeMembre> getListeMembres() {
         return ListeMembres;
     }
-    public void setListeMembres(ArrayList<Membre> listeMembres) {
+    public void setListeMembres(ArrayList<EquipeMembre> listeMembres) {
         ListeMembres = listeMembres;
     }
 }

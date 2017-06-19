@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:theme="@android:style/Theme.Holo.Light"
     tools:context="com.example.niquelesstup.rtt.ListeMatchActivity">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
 
         <TextView
             android:id="@+id/textViewVille"
@@ -21,7 +15,9 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_below="@+id/textViewTitreListMatch"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="0dp" />
 
         <TextView
             android:id="@+id/textViewTitreListMatch"
@@ -29,27 +25,32 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="14dp"
             android:text="TextView"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="0dp" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
             android:text="Voir sur la carte (désactivé)"
             android:layout_below="@+id/textViewVille"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="0dp" />
 
-        <ListView
-            android:id="@+id/listViewEvent"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tvVide" />
+    <ListView
+        android:id="@+id/listViewEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvVide"
+        android:listSelector="@drawable/couleurs_lv_matchs"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="0dp"></ListView>
 
         <TextView
             android:id="@+id/tvVide"
@@ -58,7 +59,8 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/button3"
-            android:padding="5dp" />
+            android:padding="5dp"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="0dp" />
 
-    </RelativeLayout>
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

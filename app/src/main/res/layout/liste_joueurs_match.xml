@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/TV_Team"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="false"
+        android:layout_marginStart="18dp"
+        android:layout_toEndOf="@+id/ivAvatar"
+        android:gravity="center_vertical"
+        android:text="TextView"
+        android:textColor="@android:color/background_dark" />
+
+    <TextView
+        android:id="@+id/TV_NBJ"
+        android:layout_width="wrap_content"
+        android:layout_height="29dp"
+        android:gravity="center_vertical"
+        android:text="TextView"
+        android:textColor="@android:color/background_dark"
+        android:layout_alignBottom="@+id/ivAvatar"
+        android:layout_alignStart="@+id/TV_Team" />
+
+    <ImageView
+        android:id="@+id/ivAvatar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentTop="false"
+        app:srcCompat="@drawable/ic_menu_camera" />
+</RelativeLayout>

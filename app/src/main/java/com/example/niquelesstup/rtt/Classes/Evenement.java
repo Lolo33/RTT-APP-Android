@@ -11,7 +11,7 @@ import java.util.Date;
 
 public class Evenement implements Serializable {
 
-    public Evenement(int id, String titre, int nbEquipes, int nbJoueursMax, int nbJoueursMin, float tarif, Lieu lieu, Date date, Time heureDebut, Time heureFin, boolean isPrive, String pass, boolean isPayable, Compte compte, InfosMango infosMango, boolean isTarifEquipe, Membre organisateur1, Membre organisateur2, String img, String descriptif, boolean isTournoi, ArrayList<Equipe> listeEquipes) {
+    public Evenement(int id, String titre, int nbEquipes, int nbJoueursMax, int nbJoueursMin, float tarif, Lieu lieu, Date date, Time heureDebut, Time heureFin, boolean isPrive, String pass, boolean isPayable, Compte compte, InfosMango infosMango, boolean isTarifEquipe, Membre organisateur1, Membre organisateur2, String img, String descriptif, boolean isTournoi, ArrayList<MessageMur> listeMsg) {
         this.id = id;
         this.titre = titre;
         this.nbEquipes = nbEquipes;
@@ -33,7 +33,7 @@ public class Evenement implements Serializable {
         this.img = img;
         this.descriptif = descriptif;
         this.isTournoi = isTournoi;
-        this.listeEquipes = listeEquipes;
+        this.listeMsg = listeMsg;
     }
     public Evenement() {
     }
@@ -60,24 +60,63 @@ public class Evenement implements Serializable {
     private String descriptif;
     private boolean isTournoi;
     private ArrayList<Equipe> listeEquipes;
+    private ArrayList<MessageMur> listeMsg;
+    private ArrayList<EquipeMembre> listeMembres;
 
     public String getNombreEquipesString() {
-        return this.getListeEquipes().size() + " / " + this.getNbEquipes()  + " équipes";
+        return this.getListeEquipes().size() + " / " + this.getNbEquipes();
+    }
+    public String getNombreJoueursString(){
+        return getListeMembres().size() + " / " + nbJoueursMax * nbEquipes;
     }
 
-    public String getNombreJoueursString(){
-        int jMax = this.getNbJoueursMax() * this.getNbEquipes();
-        int jInscrits = 0;
-        for (int i=0; i<this.getListeEquipes().size(); i++){
-            int nbJoueurs = this.getListeEquipes().get(i).getListeMembres().size();
-            jInscrits += nbJoueurs;
+    public boolean membreAppartientEvent(Membre membre){
+        if (!this.isTournoi()) {
+            for (int i = 0; i < this.getListeMembres().size(); i++)
+                if (this.getListeMembres().get(i).getMembre().getId() == membre.getId())
+                    return true;
+        }else {
+            for (int i=0; i< this.getListeEquipes().size(); i++)
+                for(int j=0; j<this.getListeEquipes().get(i).getListeMembres().size(); j++)
+                    if (this.getListeEquipes().get(i).getListeMembres().get(j).getMembre().getId() == membre.getId())
+                        return  true;
         }
-        return jInscrits + " / " + jMax + " joueurs";
+        return false;
+    }
+
+    public EquipeMembre getOneEm(Equipe equipe, Membre membre){
+        for (int i=0; i<this.listeEquipes.size(); i++){
+            for (int j=0; j<listeEquipes.get(i).getListeMembres().size(); j++){
+                if (listeEquipes.get(i).getId() == equipe.getId() && listeEquipes.get(i).getListeMembres().get(j).getMembre().getId() == membre.getId()){
+                    return listeEquipes.get(i).getListeMembres().get(j);
+                }
+            }
+        }
+        return new EquipeMembre();
+    }
+    public Equipe getEquipeJoueur(Membre membre){
+        for (int i=0; i<this.listeEquipes.size(); i++){
+            for (int j=0; j<listeEquipes.get(i).getListeMembres().size(); j++){
+                if (listeEquipes.get(i).getListeMembres().get(j).getMembre().getId() == membre.getId()){
+                    return listeEquipes.get(i);
+                }
+            }
+        }
+        return new Equipe();
+    }
+
+    public int getIndexListeMembre(Membre membre){
+        for (int i=0; i<listeMembres.size();i++)
+            if (listeMembres.get(i).getMembre().getId() == membre.getId()){
+                return i;
+        }
+        return -1;
     }
 
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -227,5 +266,28 @@ public class Evenement implements Serializable {
     }
     public void setListeEquipes(ArrayList<Equipe> listeEquipes) {
         this.listeEquipes = listeEquipes;
+    }
+
+    public ArrayList<MessageMur> getListeMsg() {
+        return listeMsg;
+    }
+    public void setListeMsg(ArrayList<MessageMur> listeMsg) {
+        this.listeMsg = listeMsg;
+    }
+
+    public void initialiserListeMembres() {
+        ArrayList<EquipeMembre> listeJoueursMatch = new ArrayList<EquipeMembre>();
+        for (int i=0; i<this.getListeEquipes().size(); i++){
+            for (int j=0; j < this.getListeEquipes().get(i).getListeMembres().size(); j++){
+                listeJoueursMatch.add(this.getListeEquipes().get(i).getListeMembres().get(j));
+            }
+        }
+        this.listeMembres = listeJoueursMatch;
+    }
+    public ArrayList<EquipeMembre> getListeMembres(){
+        return this.listeMembres;
+    }
+    public void setListeMembres(ArrayList<EquipeMembre> listeMembres) {
+        this.listeMembres = listeMembres;
     }
 }

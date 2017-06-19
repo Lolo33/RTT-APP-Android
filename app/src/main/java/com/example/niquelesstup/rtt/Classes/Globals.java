@@ -1,12 +1,22 @@
 package com.example.niquelesstup.rtt.Classes;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.niquelesstup.rtt.Classes.Api.Token;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 /**
@@ -72,6 +82,17 @@ public class Globals {
             } catch (Exception e) {
                 Log.e("FONT", fontName + " not found", e);
             }
+        }
+    }
+
+    public static void majImg(String url, ImageView img) {
+        try {
+            Bitmap bitmap = BitmapFactory.decodeStream((InputStream)new URL(url).getContent());
+            img.setImageBitmap(bitmap);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/TV_MSGMEMBR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/textViewMSGMur"
+            android:padding="5dp"
+            android:paddingEnd="10dp"
+            android:text="Par Lolo"
+            android:textColor="@color/black_overlay"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/textViewMSGMur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:padding="10dp"
+            android:text="TextView"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textViewDteMsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textViewMSGMur"
+            android:padding="5dp"
+            android:paddingStart="10dp"
+            android:text="Le 26/10/2016 à 10h12"
+            android:textColor="@color/black_overlay"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/textViewSepMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textViewDteMsg"
+            android:height="1dp"
+            android:background="@color/black_overlay" />
+
+</RelativeLayout>

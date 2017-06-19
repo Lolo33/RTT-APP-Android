@@ -6,10 +6,13 @@ import com.example.niquelesstup.rtt.Classes.Avatar;
 import com.example.niquelesstup.rtt.Classes.Compte;
 import com.example.niquelesstup.rtt.Classes.Departement;
 import com.example.niquelesstup.rtt.Classes.Equipe;
+import com.example.niquelesstup.rtt.Classes.EquipeMembre;
 import com.example.niquelesstup.rtt.Classes.Evenement;
 import com.example.niquelesstup.rtt.Classes.InfosMango;
 import com.example.niquelesstup.rtt.Classes.Lieu;
 import com.example.niquelesstup.rtt.Classes.Membre;
+import com.example.niquelesstup.rtt.Classes.MessageMur;
+import com.example.niquelesstup.rtt.Classes.StatutJoueur;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -56,7 +59,8 @@ public class JsonConverter {
                     objetJson.getString("membreIpDerniereConnexion"), objetJson.getString("membreCodeValidation"),
                     objetJson.getBoolean("membreValidation"), objetJson.getString("membreDptCode"), avatar, listeComptes, listeIm);
         }catch (JSONException ex){
-            leMembre = null;
+            leMembre = new Membre();
+            Log.e("membreBug:", ex.getMessage());
         }
         return leMembre;
     }
@@ -71,7 +75,7 @@ public class JsonConverter {
                 listeDpt.add(unDpt);
             }
         } catch (JSONException ex) {
-            listeDpt = null;
+            Log.e("errDpt:", ex.getMessage());
         }
         return listeDpt;
     }
@@ -80,7 +84,8 @@ public class JsonConverter {
         try {
             unDpt = new Departement(dptJson.getInt("id"), dptJson.getString("dptCode"), dptJson.getString("dptNom"));
         }catch (JSONException ex){
-            unDpt = null;
+            unDpt = new Departement();
+            Log.e("errDptOne:", ex.getMessage());
         }
         return unDpt;
     }
@@ -96,7 +101,7 @@ public class JsonConverter {
                 listeLieux.add(unLieu);
             }
         } catch (JSONException ex) {
-            listeLieux = null;
+            Log.e("errLieu:", ex.getMessage());
         }
         return listeLieux;
     }
@@ -113,69 +118,124 @@ public class JsonConverter {
                 unLieu.setCompteEvents(listeEventJson.length());
             }
         }catch (JSONException ex){
-            unLieu = null;
+            unLieu = new Lieu();
+            Log.e("errLieu:", ex.getMessage());
         }
         return unLieu;
     }
 
     // Conversion des EVENEMENTS
-    public static ArrayList<Evenement> convertListeEvenements(JSONArray arrayJson){
+    public static ArrayList<Evenement> convertListeEvenements(JSONArray arrayJson, boolean set_liste_membre){
         ArrayList<Evenement> listeEvents = new ArrayList<Evenement>();
         try {
             for (int i=0; i<arrayJson.length(); i++){
                 JSONObject objetJson = arrayJson.getJSONObject(i);
-                Evenement unEvenement = convertEvenement(objetJson);
+                Evenement unEvenement = convertEvenement(objetJson, set_liste_membre);
                 listeEvents.add(unEvenement);
             }
         }catch (JSONException ex){
-            //listeEvents = null;
+            Log.e("errEvent:", ex.getMessage());
         }
         return listeEvents;
     }
-
-    public static Evenement convertEvenement(JSONObject eventJson){
+    public static Evenement convertEvenement(JSONObject eventJson, boolean set_liste_equipe){
         Evenement unEvenement;
         try {
-            JSONArray listeEquipesJson = eventJson.getJSONArray("eventListeEquipes");
-            ArrayList<Equipe> listeEquipes = convertListeEquipes(listeEquipesJson);
             Lieu leLieu = convertLieu(eventJson.getJSONObject("eventLieu"), false);
             Membre orga1 = convertMembre(eventJson.getJSONObject("eventOrga"));
             Membre orga2 = new Membre();
             Compte leCompte = convertCompte(eventJson.getJSONObject("eventCompte"));
             InfosMango im = convertIm(eventJson.getJSONObject("eventMango"));
+            JSONArray arrayMsg = eventJson.getJSONArray("eventListeMsg");
+            ArrayList<MessageMur> listeMsg = convertListeMsgMur(arrayMsg);
             //float tarif = 12.2F; /*eventJson.getInt("eventTarif");*/
             unEvenement = new Evenement(eventJson.getInt("id"), eventJson.getString("eventTitre"), eventJson.getInt("eventNbEquipes"),
-                    eventJson.getInt("eventJoueursMax"), eventJson.getInt("eventJoueursMin"), 12, leLieu, new Date(2016,10,10), new Time(10,0,0), new Time(10,0,0)
+                    eventJson.getInt("eventJoueursMax"), eventJson.getInt("eventJoueursMin"), 12, leLieu, longJsonStringToDate(eventJson.getString("eventDate")), new Time(10,0,0), new Time(10,0,0)
                     /*new Time(longJsonStringToDate("eventHeureDebut").getTime()), new Time(longJsonStringToDate("eventHeureFin").getTime())*/, eventJson.getBoolean("eventPrive"),
                     eventJson.getString("eventPass"), eventJson.getBoolean("eventPaiement"), leCompte, im, eventJson.getBoolean("eventTarificationEquipe"),
-                    orga1, orga2, eventJson.getString("eventImg"), eventJson.getString("eventDescriptif"), eventJson.getBoolean("eventTournoi"), listeEquipes);
+                    orga1, orga2, eventJson.getString("eventImg"), eventJson.getString("eventDescriptif"), eventJson.getBoolean("eventTournoi"), listeMsg);
+            if (set_liste_equipe){
+                JSONArray listeEquipesJson = eventJson.getJSONArray("eventListeEquipes");
+                ArrayList<Equipe> listeEquipes = convertListeEquipes(listeEquipesJson, true);
+                unEvenement.setListeEquipes(listeEquipes);
+                unEvenement.initialiserListeMembres();
+            }
         }catch (JSONException ex){
             unEvenement = new Evenement();
+            Log.e("errEvent:", ex.getMessage());
         }
         return unEvenement;
     }
 
+    // Conversion messages du mur
+    public static MessageMur convertMsgMur(JSONObject msgJson){
+        MessageMur unMsg;
+        try {
+            unMsg = new MessageMur(msgJson.getInt("id"), msgJson.getString("murDate"), msgJson.getString("murContenu"),
+                    convertMembre(msgJson.getJSONObject("murMembre")));
+        }catch (JSONException ex){
+            unMsg = null;
+            Log.e("errMsg", ex.getMessage());
+        }
+        return unMsg;
+    }
+    public static ArrayList<MessageMur> convertListeMsgMur(JSONArray arrayMsg){
+        ArrayList<MessageMur> listeMsg = new ArrayList<MessageMur>();
+        try {
+            for (int i = 0; i < arrayMsg.length(); i++) {
+                JSONObject msgJson = arrayMsg.getJSONObject(i);
+                MessageMur unMsg = convertMsgMur(msgJson);
+                listeMsg.add(unMsg);
+            }
+        }catch (JSONException ex){
+            listeMsg = null;
+            Log.e("errMsg", ex.getMessage());
+        }
+        return listeMsg;
+    }
+
     // Conversion des EQUIPES
-    public static ArrayList<Equipe> convertListeEquipes(JSONArray listeEquipesJson){
+    public static ArrayList<Equipe> convertListeEquipes(JSONArray listeEquipesJson, boolean set_liste_membre){
         ArrayList<Equipe> listeEquipes = new ArrayList<Equipe>();
         try {
             for (int i=0; i<listeEquipesJson.length(); i++){
-                ArrayList<Membre> listeMembres = new ArrayList<Membre>();
                 JSONObject objetEquipeJson = listeEquipesJson.getJSONObject(i);
-                JSONArray arrayMembresJson = objetEquipeJson.getJSONArray("teamListeMembres");
-                for (int j=0; j<arrayMembresJson.length(); j++){
-                    JSONObject objetMembreJson = arrayMembresJson.getJSONObject(j);
-                    Membre unMembre = convertMembre(objetMembreJson);
-                    listeMembres.add(unMembre);
-                }
                 Equipe uneEquipe = new Equipe(objetEquipeJson.getInt("id"), objetEquipeJson.getString("teamNom"), objetEquipeJson.getString("teamCode"),
-                        objetEquipeJson.getBoolean("teamPrive"), objetEquipeJson.getString("teamPass"), listeMembres);
+                        objetEquipeJson.getBoolean("teamPrive"), objetEquipeJson.getString("teamPass"));
+                if (set_liste_membre){
+                    ArrayList<EquipeMembre> listeMembresEquipe = new ArrayList<EquipeMembre>();
+                    JSONArray arrayMembresJson = objetEquipeJson.getJSONArray("teamListeMembres");
+                    for (int j=0; j<arrayMembresJson.length(); j++){
+                        JSONObject objEmJson = arrayMembresJson.getJSONObject(j);
+                        EquipeMembre membreEquipe = convertMembreTeam(objEmJson);
+                        listeMembresEquipe.add(membreEquipe);
+                    }
+                    uneEquipe.setListeMembres(listeMembresEquipe);
+                }
                 listeEquipes.add(uneEquipe);
             }
         }catch (JSONException ex){
             //listeEquipes = null;
+            Log.e("errTeam:", ex.getMessage());
         }
         return listeEquipes;
+    }
+
+    public static EquipeMembre convertMembreTeam(JSONObject objEmJson){
+        EquipeMembre membreEquipe = new EquipeMembre();
+        try {
+            JSONObject objetMembreJson = objEmJson.getJSONObject("emMembre");
+            Membre unMembre = convertMembre(objetMembreJson);
+            membreEquipe.setId(objEmJson.getInt("id"));
+            membreEquipe.setMembre(unMembre);
+            membreEquipe.setPayId(objEmJson.getString("emPayId"));
+            JSONObject jsonStatut = objEmJson.getJSONObject("emStatutJoueur");
+            membreEquipe.setStatutJoueur(new StatutJoueur(jsonStatut.getInt("id"), jsonStatut.getString("statutNom")));
+            membreEquipe.setPay(objEmJson.getBoolean("emMembrePaye"));
+        }catch (JSONException ex){
+            Log.e("errEm:", ex.getMessage());
+        }
+        return membreEquipe;
     }
 
     // Conversion des COMPTES
@@ -188,7 +248,7 @@ public class JsonConverter {
                 listeComptes.add(unCompte);
             }
         }catch (JSONException ex){
-            listeComptes = null;
+            Log.e("errCompte:", ex.getMessage());
         }
         return listeComptes;
     }
@@ -199,7 +259,8 @@ public class JsonConverter {
                     compteJson.getString("compteNom"), compteJson.getString("comptePrenom"), compteJson.getString("compteAdresseL1"),
                     compteJson.getString("compteAdresseL2"), compteJson.getString("compteCp"), compteJson.getString("compteVille"));
         }catch (JSONException ex){
-            unCompte = null;
+            unCompte = new Compte();
+            Log.e("errCompte:", ex.getMessage());
         }
         return unCompte;
     }
@@ -214,7 +275,7 @@ public class JsonConverter {
                 listeIm.add(im);
             }
         }catch (JSONException ex){
-            listeIm = null;
+            Log.e("errMango:", ex.getMessage());
         }
         return listeIm;
     }
@@ -223,7 +284,8 @@ public class JsonConverter {
         try {
             im = new InfosMango(imJson.getInt("id"), imJson.getString("imMangoId"), imJson.getString("imWalletId"));
         }catch (JSONException ex){
-            im = null;
+            im = new InfosMango();
+            Log.e("errMango:", ex.getMessage());
         }
         return im;
     }

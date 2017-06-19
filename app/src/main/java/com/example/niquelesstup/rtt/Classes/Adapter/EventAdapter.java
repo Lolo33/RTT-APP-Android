@@ -55,22 +55,22 @@ public class EventAdapter extends ArrayAdapter<Evenement> {
             String nb_team;
             if (item.isTournoi()){
                 background = Color.parseColor(Globals.COULEUR_TOURNOI);
-                nb_team = item.getNombreEquipesString();
+                nb_team = item.getNombreEquipesString() + " équipes";
             }else{
-                nb_team = item.getNombreJoueursString();
+                nb_team = item.getNombreJoueursString()  + " joueurs";
             }
 
 
 
-            Date dateEvent = new Date(2016, 10, 11);
+            Date dateEvent = item.getDate();
             Time time = new Time(10, 0, 0);
             v.setBackgroundColor(background);
 
             header.setText(item.getTitre());
             tvTarif.setText(String.valueOf(item.getTarif() + " €"));
             tvTournoi.setText(item.getOrganisateur1().getPseudo());
-            tvDate.setText(String.valueOf(dateEvent.getDate() + "-" + dateEvent.getMonth() + "-" + dateEvent.getYear() + " à " + time.getHours() + " h " + time.getMinutes()));
-            tvEquipe.setText(item.getLieu().getVille());
+            tvDate.setText(String.valueOf(dateEvent.toString()));
+            tvEquipe.setText(nb_team);
 
             return v;
 

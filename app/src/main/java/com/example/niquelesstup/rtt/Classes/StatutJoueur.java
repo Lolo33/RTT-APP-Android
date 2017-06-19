@@ -8,9 +8,15 @@ import java.io.Serializable;
 
 public class StatutJoueur implements Serializable {
 
+    public StatutJoueur(int id, String nom) {
+        this.id = id;
+        this.nom = nom;
+    }
+    public StatutJoueur() {
+    }
+
     private int id;
     private String nom;
-
 
     public int getId() {
         return id;

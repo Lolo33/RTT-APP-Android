@@ -94,7 +94,8 @@ public class LoginnActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                textView.setText("Pseudo / mot de passe incorrects");
+                if (error.networkResponse.statusCode == 403)
+                    textView.setText("Pseudo / mot de passe incorrects");
             }
         })
         {

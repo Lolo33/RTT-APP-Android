@@ -1,6 +1,7 @@
 package com.example.niquelesstup.rtt.Classes.Api;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -8,6 +9,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.niquelesstup.rtt.Classes.Globals;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,14 +38,19 @@ public class ConfApi {
                         try {
                             JSONObject token = new JSONObject(response);
                             setToken(new Token(token.getString("value"), token.getString("createdAt")));
+                            Globals.setTokenApi(new Token(token.getString("value"), token.getString("createdAt")));
                         } catch (JSONException ex) {
-                            //setToken(null);
+                            Log.e("errReponseToken", ex.getMessage());
+                            setToken(new Token("ZwbyKi5TGaXT5q9tflMO73iXxHyrE0XNuZJiRC61pmW49rCA3WeAfqx9NpilI2jx6iw=", "2017-06-18T14:12:49+01:00"));
+                            Globals.setTokenApi(new Token("ZwbyKi5TGaXT5q9tflMO73iXxHyrE0XNuZJiRC61pmW49rCA3WeAfqx9NpilI2jx6iw=", "2017-06-18T14:12:49+01:00"));
                         }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                //err reponse
+                Log.e("errReponseToken", error.getMessage());
+                setToken(new Token("ZwbyKi5TGaXT5q9tflMO73iXxHyrE0XNuZJiRC61pmW49rCA3WeAfqx9NpilI2jx6iw=", "2017-06-18T14:12:49+01:00"));
+                Globals.setTokenApi(new Token("ZwbyKi5TGaXT5q9tflMO73iXxHyrE0XNuZJiRC61pmW49rCA3WeAfqx9NpilI2jx6iw=", "2017-06-18T14:12:49+01:00"));
             }
         }) {
             @Override

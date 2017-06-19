@@ -1,8 +1,10 @@
 package com.example.niquelesstup.rtt;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -34,6 +36,8 @@ public class ListeMatchActivity extends AppCompatActivity {
     private Lieu leLieu;
     private RequestQueue requestQueue;
     private ArrayList<Evenement> listeEvenements;
+    private ListView listViewEvents;
+    private EventAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +49,8 @@ public class ListeMatchActivity extends AppCompatActivity {
         leLieu = (Lieu) getIntent().getSerializableExtra("lieu");
 
         // déclaration de l'adapter
-        final EventAdapter adapter = new EventAdapter(this, R.layout.list_custom_events); // the adapter is a member field in the activity
-        final ListView listViewEvents = (ListView) findViewById(R.id.listViewEvent);
+        adapter = new EventAdapter(this, R.layout.list_custom_events); // the adapter is a member field in the activity
+        listViewEvents = (ListView) findViewById(R.id.listViewEvent);
 
         // Initialisation du texte
         final TextView tvTitre = (TextView) findViewById(R.id.textViewTitreListMatch);
@@ -56,6 +60,10 @@ public class ListeMatchActivity extends AppCompatActivity {
         Globals.setFont(this, tvTitre, "Champagne & Limousines Bold.ttf");
 
         /// Requete de récupération de l'évenement
+        listEvents();
+    }
+
+    public void listEvents(){
         String url = Globals.getApiUrl() + "/lieux/" + leLieu.getId() + "/evenements";
         requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.start();
@@ -65,17 +73,17 @@ public class ListeMatchActivity extends AppCompatActivity {
                 try {
                     JSONArray arrayEventsJson = new JSONArray(response);
                     listViewEvents.setAdapter(adapter);
-                    ArrayList<Evenement> listeEvents = JsonConverter.convertListeEvenements(arrayEventsJson);
+                    ArrayList<Evenement> listeEvents = JsonConverter.convertListeEvenements(arrayEventsJson, true);
                     listeEvenements = listeEvents;
                     adapter.addAll(listeEvents);
                 }catch (JSONException ex){
-                    tvTitre.setText("erreur lors du listing");
+                    //tvTitre.setText("erreur lors du listing");
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                tvTitre.setText("erreur reponse");
+                //tvTitre.setText("erreur reponse");
             }
         })
         {
@@ -97,5 +105,27 @@ public class ListeMatchActivity extends AppCompatActivity {
                 startActivity(intentEvent);
             }
         });
+        listViewEvents.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                v.setBackgroundColor(Color.parseColor("#f5f5f5"));
+                return false;
+            }
+        });
+    }
+
+    protected void onResume(Bundle savedInstanceState){
+        super.onResume();
+        listEvents();
+    }
+
+    protected void onStart(Bundle savedInstanceState){
+        super.onStart();
+        listEvents();
+    }
+
+    public void onRestart(Bundle savedInstanceState){
+        super.onRestart();
+        listEvents();
     }
 }

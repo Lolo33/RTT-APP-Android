@@ -8,8 +8,8 @@
     tools:context="com.example.niquelesstup.rtt.InscriptionActivity">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="304dp"
+        android:layout_height="437dp"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp">
 
