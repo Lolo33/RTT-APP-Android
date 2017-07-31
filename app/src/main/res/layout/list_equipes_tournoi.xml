@@ -20,7 +20,10 @@
         android:id="@+id/textViewNbJoueursTeam"
         android:layout_width="100dp"
         android:layout_height="25dp"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/textViewNomTeam"
+        android:layout_marginBottom="10dp"
+        android:layout_toStartOf="@+id/textView5"
         android:gravity="center_vertical"
         android:paddingBottom="5dp"
         android:paddingLeft="15dp"
@@ -29,7 +32,7 @@
         android:textColor="@color/colorPrimary"
         android:textStyle="bold" />
 
-    <com.example.niquelesstup.rtt.Classes.Adapter.ExtendedListView
+    <com.matemaker.rtt.app.Classes.Adapter.ExtendedListView
         android:id="@+id/LvJoueurs"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

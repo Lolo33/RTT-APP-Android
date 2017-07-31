@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_liste_match"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Matchs à proximité" />
+            android:id="@+id/nav_accueil"
+            android:icon="@android:drawable/ic_menu_view"
+            android:title="Accueil" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
+            android:id="@+id/nav_orga"
+            android:icon="@drawable/icon_join"
             android:title="Organiser un match" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Mes matchs" />
+            android:id="@+id/nav_liste_match"
+            android:icon="@android:drawable/ic_menu_search"
+            android:title="Matchs à proximité" />
+        <item
+            android:id="@+id/nav_mes_tournois"
+            android:icon="@android:drawable/ic_menu_my_calendar"
+            android:title="Mes évenements" />
+        <item
+            android:id="@+id/nav_param"
+            android:icon="@android:drawable/ic_menu_manage"
+            android:title="Paramètres" />
     </group>
 
     <item android:title="Mon compte RTT">
         <menu>
             <item
-                android:id="@+id/nav_manage"
-                android:icon="@drawable/ic_menu_manage"
-                android:title="Paramètres" />
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
+                android:id="@+id/nav_deco"
+                android:icon="@android:drawable/ic_delete"
                 android:title="Déconnexion" />
         </menu>
     </item>

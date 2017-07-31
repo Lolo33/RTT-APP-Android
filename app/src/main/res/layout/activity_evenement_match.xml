@@ -4,160 +4,204 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.niquelesstup.rtt.EvenementMatchActivity"
+    tools:context="com.matemaker.rtt.app.EvenementMatchActivity"
     android:theme="@android:style/Theme.Holo.Light">
-
-    <RelativeLayout
-        android:id="@+id/header_match"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:background="@color/colorPrimaryDark"
-        android:paddingBottom="5dp">
-
-        <TextView
-            android:id="@+id/TV_PRIXMATCH"
-            android:layout_width="60dp"
-            android:layout_height="30dp"
-            android:layout_alignStart="@+id/TV_ORGAMATCH"
-            android:layout_below="@+id/imageView3"
-            android:layout_toStartOf="@+id/imageView3"
-            android:gravity="center_vertical"
-            android:paddingRight="5dp"
-            android:text="12.00 €"
-            android:textAlignment="viewEnd"
-            android:textColor="@android:color/background_light" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignBottom="@+id/TV_ORGAMATCH"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@+id/textViewTitreMatch"
-            app:srcCompat="@drawable/ic_menu_gallery" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/textViewTitreMatch"
-            app:srcCompat="@android:drawable/star_big_on" />
-
-        <TextView
-            android:id="@+id/TV_ORGAMATCH"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/TV_DATEMATCH"
-            android:layout_below="@+id/textViewTitreMatch"
-            android:layout_toStartOf="@+id/imageView3"
-            android:gravity="center_vertical"
-            android:paddingRight="5dp"
-            android:text="Organisateur"
-            android:textAlignment="viewEnd"
-            android:textColor="@android:color/background_light" />
-
-        <TextView
-            android:id="@+id/textViewTitreMatch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:paddingBottom="10dp"
-            android:paddingTop="5dp"
-            android:text="Match ..."
-            android:textAlignment="center"
-            android:textColor="@android:color/background_light"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textViewLieuMatch"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/imageView2"
-            android:layout_below="@+id/textViewTitreMatch"
-            android:layout_toEndOf="@+id/imageView2"
-            android:gravity="center_vertical"
-            android:paddingLeft="5dp"
-            android:text="Lieu"
-            android:textAlignment="gravity"
-            android:textColor="@android:color/background_light" />
-
-        <TextView
-            android:id="@+id/TV_DATEMATCH"
-            android:layout_width="120dp"
-            android:layout_height="30dp"
-            android:layout_below="@+id/textViewLieuMatch"
-            android:layout_toEndOf="@+id/imageView2"
-            android:gravity="center_vertical"
-            android:paddingLeft="5dp"
-            android:text="Aujourd'hui"
-            android:textColor="@android:color/background_light" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/imageView2"
-            app:srcCompat="@drawable/ic_menu_share" />
-
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@+id/imageView3"
-            app:srcCompat="@drawable/ic_menu_send" />
-
-    </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/header_match"
-        android:background="@color/colorGainsboro">
+        android:background="@color/colorGainsboro"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="5dp">
+            android:paddingBottom="5dp"
+            android:weightSum="1">
 
-            <Button
-                android:id="@+id/btnInscrire"
+            <RelativeLayout
+                android:id="@+id/header_match"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_weight="0.40"
+                android:background="@color/colorEv"
+                android:paddingBottom="15dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:id="@+id/TV_PRIXMATCH"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_alignStart="@+id/TV_ORGAMATCH"
+                    android:layout_below="@+id/imageView3"
+                    android:layout_toStartOf="@+id/imageView3"
+                    android:gravity="center_vertical"
+                    android:paddingRight="5dp"
+                    android:text="12.00 €"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@android:color/background_light" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignBottom="@+id/TV_ORGAMATCH"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@+id/textViewTitreMatch"
+                    app:srcCompat="@drawable/icone_organisateur" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textViewTitreMatch"
+                    app:srcCompat="@drawable/icone_lieu" />
+
+                <TextView
+                    android:id="@+id/TV_ORGAMATCH"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/TV_DATEMATCH"
+                    android:layout_below="@+id/textViewTitreMatch"
+                    android:layout_toStartOf="@+id/imageView3"
+                    android:gravity="center_vertical"
+                    android:paddingRight="5dp"
+                    android:text="Organisateur"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@android:color/background_light" />
+
+                <TextView
+                    android:id="@+id/textViewTitreMatch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="5dp"
+                    android:text="Match ..."
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textViewLieuMatch"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/imageView2"
+                    android:layout_below="@+id/textViewTitreMatch"
+                    android:layout_toEndOf="@+id/imageView2"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="Lieu"
+                    android:textAlignment="gravity"
+                    android:textColor="@android:color/background_light" />
+
+                <TextView
+                    android:id="@+id/TV_DATEMATCH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_below="@+id/textViewLieuMatch"
+                    android:layout_toEndOf="@+id/imageView2"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="Aujourd'hui"
+                    android:textColor="@android:color/background_light" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/imageView2"
+                    app:srcCompat="@drawable/icone_calendrier" />
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@+id/imageView3"
+                    app:srcCompat="@drawable/icone_tarif" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvSepTitreTop"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/cardview_dark_background" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/btnInscrire"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_weight="1"
+                    android:background="@color/ColorBtnSuccess"
+                    android:drawableStart="@drawable/icon_join1"
+                    android:onClick="ClicSinscrire"
+                    android:tag="insc_btn"
+                    android:text="S'inscrire pour le match"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="10sp" />
+
+
+                <Button
+                    android:id="@+id/btnPay"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_custom_success"
+                    android:drawableStart="@drawable/icon_payer1"
+                    android:onClick="onClicBtnPay"
+                    android:padding="10dp"
+                    android:text="Payer ma place"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btnReservTerrain"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_custom_success"
+                    android:drawableStart="@drawable/ic_menu_send"
+                    android:padding="10dp"
+                    android:text="Reserver le terrain"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/TV_HORMATCH"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/ColorBtnSuccess"
-                android:drawableStart="@drawable/icon_join1"
-                android:onClick="ClicSinscrire"
+                android:layout_weight="0.40"
+                android:background="@color/cardview_light_background"
+                android:drawableStart="@drawable/icone_heure"
+                android:gravity="center_vertical"
                 android:padding="10dp"
-                android:tag="insc_btn"
-                android:text="S'inscrire pour le match"
-                android:textColor="@android:color/background_light" />
-
-            <Button
-                android:id="@+id/btnPay"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@color/ColorBtnSuccess"
-                android:drawableStart="@drawable/icon_payer1"
-                android:padding="10dp"
-                android:text="Payer ma place"
-                android:textColor="@android:color/background_light" />
+                android:text="XX h XX - XX h XX"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewNbJMatch"
@@ -180,16 +224,29 @@
                 android:layout_height="2dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:background="#adc5d9" />
+                android:background="@color/cardview_dark_background" />
 
-            <com.example.niquelesstup.rtt.Classes.Adapter.ExtendedListView
+            <com.matemaker.rtt.app.Classes.Adapter.ExtendedListView
                 android:id="@+id/listViewJoueurs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:background="@android:color/background_light"
+                android:background="@color/cardview_light_background"
                 android:scrollbars="none" />
+
+            <Button
+                android:id="@+id/btnInviteAmis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/btn_custom_primary"
+                android:drawableStart="@drawable/icone_ami"
+                android:padding="10dp"
+                android:text="Inviter des amis"
+                android:textColor="@android:color/background_light" />
 
             <TextView
                 android:id="@+id/textViewTitreDesc"
@@ -213,7 +270,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
                 android:height="2dp"
-                android:background="#adc5d9" />
+                android:background="@color/cardview_dark_background" />
 
             <TextView
                 android:id="@+id/textViewDesc"
@@ -221,7 +278,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
-                android:background="@android:color/background_light"
+                android:background="@color/cardview_light_background"
                 android:padding="15dp"
                 android:text="Pas de description..." />
 
@@ -232,7 +289,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
                 android:height="2dp"
-                android:background="#adc5d9" />
+                android:background="@color/cardview_dark_background" />
 
             <TextView
                 android:id="@+id/textViewTitreListeMessages"
@@ -255,26 +312,26 @@
                 android:layout_height="2dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:background="#adc5d9" />
+                android:background="@color/cardview_dark_background" />
 
-            <com.example.niquelesstup.rtt.Classes.Adapter.ExtendedListView
+            <com.matemaker.rtt.app.Classes.Adapter.ExtendedListView
                 android:id="@+id/list"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:scrollbars="none"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:background="@android:color/background_light"
-                />
+                android:background="@color/cardview_light_background"
+                android:scrollbars="none" />
 
             <TextView
-                android:id="@+id/textViewSeparateurMsg"
+                android:id="@+id/tvSepMsg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
+                android:layout_weight="0.40"
                 android:height="2dp"
-                android:background="#adc5d9" />
+                android:background="@color/cardview_dark_background" />
 
             <EditText
                 android:id="@+id/editTextContenuMSG"
@@ -301,15 +358,6 @@
                 android:tag="snd_btn"
                 android:text="Envoyer"
                 android:textColor="@android:color/background_light" />
-
-            <TextView
-                android:id="@+id/textViewSeparateurFin"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#adc5d9" />
 
         </LinearLayout>
     </ScrollView>

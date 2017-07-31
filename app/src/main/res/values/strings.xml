@@ -1,12 +1,28 @@
 <resources>
     <string name="app_name">ReserveTonTerrain</string>
-
+    <string name="tag_horaire_checked">checked</string>
+    <string name="tag_horaire_obj">horaire</string>
     <string name="title_activity_loginn">ReserveTonTerrain</string>
-    <string name="title_activity_menu">RTT - App</string>
-    <string name="title_activity_liste_match">Les matchs</string>
+    <string name="title_activity_menu">ReserveTonTerrain</string>
 
     <string name="navigation_drawer_open">Ouvrir la navigation</string>
     <string name="navigation_drawer_close">Fermer la navigation</string>
 
     <string name="action_settings">Paramètres</string>
+
+    <string-array name="joueurs_array">
+        <item>8 joueurs maximum</item>
+        <item>9 joueurs maximum</item>
+        <item>10 joueurs maximum</item>
+        <item>11 joueurs maximum</item>
+        <item>12 joueurs maximum</item>
+        <item>13 joueurs maximum</item>
+        <item>14 joueurs maximum</item>
+    </string-array>
+
+
+    <string name="facebook_app_id">295291614252621</string>
+    <string name="fb_login_protocol_scheme">fb295291614252621</string>
+    <string name="title_activity_map_lieu">Localisation du complexe</string>
+    <string name="title_activity_contact">Inviter mes contacts</string>
 </resources>

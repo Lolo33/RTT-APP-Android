@@ -1,4 +1,4 @@
-package com.example.niquelesstup.monapp;
+package com.matemaker.rtt.monapp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

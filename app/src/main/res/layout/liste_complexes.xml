@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rlList"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
@@ -8,14 +9,14 @@
         android:id="@+id/buttonChangeDpt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/textViewVide"
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/inputDpt"
         android:layout_toEndOf="@+id/inputDpt"
         android:background="@color/colorPrimary"
         android:onClick="clicBtnDpt"
-        android:text="Changer"
-        android:textColor="@android:color/background_light"
-        android:layout_above="@+id/textViewVide" />
+        android:text="Valider"
+        android:textColor="@android:color/background_light" />
 
     <EditText
         android:id="@+id/inputDpt"
@@ -40,6 +41,15 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textViewVide">
     </ListView>
+
+    <ImageView
+        android:id="@+id/ivChargement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="66dp"
+        android:src="@drawable/chargement"
+        android:layout_below="@+id/textViewVide"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:id="@+id/textViewVide"

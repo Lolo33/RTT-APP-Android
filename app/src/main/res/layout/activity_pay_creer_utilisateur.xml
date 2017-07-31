@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlPayCarteAct"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.matemaker.rtt.app.PayCreerUtilisateurActivity">
+
+    <RelativeLayout
+        android:id="@+id/rlPayUser"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvTitreUserMango"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="Créer un compte MangoPay"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/inputDDNMango"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/inputMailMango"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:ems="10"
+            android:hint="Votre date de naissance"
+            android:inputType="date"
+            android:theme="@style/EditTextTheme" />
+
+        <EditText
+            android:id="@+id/inputPrenomMango"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/inputNomMango"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:ems="10"
+            android:hint="Votre prenom"
+            android:inputType="textPersonName"
+            android:theme="@style/EditTextTheme" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/inputDDNMango"
+            android:layout_alignStart="@+id/inputDDNMango"
+            android:layout_below="@+id/inputDDNMango"
+            android:layout_marginTop="54dp"
+            android:background="@color/colorPrimary"
+            android:onClick="ClicBoutonValider"
+            android:text="Valider"
+            android:textColor="@android:color/background_light" />
+
+        <EditText
+            android:id="@+id/inputMailMango"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/inputPrenomMango"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:ems="10"
+            android:hint="Votre adresse mail "
+            android:inputType="textEmailAddress"
+            android:theme="@style/EditTextTheme" />
+
+        <EditText
+            android:id="@+id/inputNomMango"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/tvTitreUserMango"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="23dp"
+            android:ems="10"
+            android:hint="Votre nom"
+            android:inputType="textPersonName"
+            android:theme="@style/EditTextTheme" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/ivChargUserM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/chargement" />
+
+</RelativeLayout>

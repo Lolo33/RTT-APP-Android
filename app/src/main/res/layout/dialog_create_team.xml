@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <EditText
+        android:id="@+id/dialogInputNomTeam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:layout_weight="0.07"
+        android:ems="10"
+        android:hint="Nom de votre équipe.."
+        android:inputType="textPersonName"
+        android:theme="@style/EditTextTheme" />
+
+    <Button
+        android:id="@+id/btnCreerTeam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/ColorBtnSuccess"
+        android:text="Créer mon équipe"
+        android:textColor="@android:color/background_light" />
+
+    <Button
+        android:id="@+id/btnExitDialog2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/IndianRed"
+        android:text="Fermer"
+        android:textColor="@android:color/background_light" />
+</LinearLayout>

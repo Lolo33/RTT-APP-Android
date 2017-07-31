@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Spinner
+        android:id="@+id/spinLieu"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_above="@+id/btnReservHoraire"
+        android:layout_below="@+id/llHorairesSemaine"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/llLvHoraires"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignStart="@+id/llHorairesSemaine"
+            android:layout_below="@+id/llHorairesSemaine"
+            android:clipChildren="false"
+            android:divider="@color/cardview_dark_background"
+            android:isScrollContainer="false"
+            android:keepScreenOn="false"
+            android:labelFor="@+id/lvJour1"
+            android:measureWithLargestChild="true"
+            android:orientation="horizontal"
+            android:showDividers="beginning|middle|end"
+            android:textAlignment="center">
+
+            <com.matemaker.rtt.app.Classes.Adapter.ExtendedListView
+                android:id="@+id/lvJour1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:scrollbars="none" />
+
+            <com.matemaker.rtt.app.Classes.Adapter.ExtendedListView
+                android:id="@+id/lvJour2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:scrollbars="none" />
+
+            <com.matemaker.rtt.app.Classes.Adapter.ExtendedListView
+                android:id="@+id/lvJour3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:scrollbars="none" />
+
+            <com.matemaker.rtt.app.Classes.Adapter.ExtendedListView
+                android:id="@+id/lvJour4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:scrollbars="none" />
+
+            <com.matemaker.rtt.app.Classes.Adapter.ExtendedListView
+                android:id="@+id/lvJour5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:scrollbars="none" />
+
+            <com.matemaker.rtt.app.Classes.Adapter.ExtendedListView
+                android:id="@+id/lvJour6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:scrollbars="none" />
+
+            <com.matemaker.rtt.app.Classes.Adapter.ExtendedListView
+                android:id="@+id/lvJour7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:scrollbars="none"
+                android:scrollingCache="false" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/llHorairesSemaine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/spinLieu"
+        android:background="@color/IndianRed"
+        android:divider="@color/black_overlay"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/tvJour1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="Lun 17"
+            android:textAlignment="center"
+            android:textColor="@color/colorBgFb" />
+
+        <TextView
+            android:id="@+id/tvJour2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="Mar 18"
+            android:textAlignment="center"
+            android:textColor="@color/colorBgFb" />
+
+        <TextView
+            android:id="@+id/tvJour3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="Mer 19"
+            android:textAlignment="center"
+            android:textColor="@color/colorBgFb" />
+
+        <TextView
+            android:id="@+id/tvJour4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="Jeu 20"
+            android:textAlignment="center"
+            android:textColor="@color/colorBgFb" />
+
+        <TextView
+            android:id="@+id/tvJour5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="Ven 21"
+            android:textAlignment="center"
+            android:textColor="@color/colorBgFb" />
+
+        <TextView
+            android:id="@+id/tvJour6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="Sam 22"
+            android:textAlignment="center"
+            android:textColor="@color/colorBgFb" />
+
+        <TextView
+            android:id="@+id/tvJour7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="Dim 23"
+            android:textAlignment="center"
+            android:textColor="@color/colorBgFb" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnReservHoraire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnOrgaHor"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/btn_custom_blue"
+        android:enabled="false"
+        android:text="Je réserve tout de suite"
+        android:textColor="@color/cardview_light_background" />
+
+    <Button
+        android:id="@+id/btnOrgaHor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/btn_custom_blue"
+        android:enabled="false"
+        android:text="Je m'organise avec mes amis et je réserve plus tard"
+        android:textColor="@color/cardview_light_background" />
+
+    <TextView
+        android:id="@+id/tvChargement"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/cardview_dark_background"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Chargement des horaires ..."
+        android:textColor="@color/cardview_light_background"
+        android:visibility="visible"
+        android:layout_above="@+id/llHorairesSemaine"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <ImageView
+        android:id="@+id/ivChargHoraires"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_weight="1"
+        android:visibility="gone"
+        app:srcCompat="@drawable/chargement" />
+
+</RelativeLayout>

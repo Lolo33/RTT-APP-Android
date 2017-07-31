@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvNomContact"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/ivAvatarContact"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:text="Unom"
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvTelContact"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/tvNomContact"
+        android:layout_below="@+id/tvNomContact"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:text="0660894152"
+        android:textColor="@color/SlateGray"
+        android:textStyle="italic" />
+
+    <ImageView
+        android:id="@+id/ivAvatarContact"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:paddingBottom="10dp"
+        android:src="@drawable/contact" />
+</RelativeLayout>

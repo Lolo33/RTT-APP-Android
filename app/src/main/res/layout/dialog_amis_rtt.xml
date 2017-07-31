@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btnRetourAmis"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/com_facebook_likeview_text_color"
+        android:text="Retour"
+        android:textColor="@android:color/background_light" />
+
+    <Button
+        android:id="@+id/btnInviteAmiRTT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/btnRetourAmis"
+        android:background="@drawable/btn_custom_success"
+        android:text="Inviter"
+        android:textColor="@android:color/background_light" />
+
+    <TextView
+        android:id="@+id/tvSelectAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvSepRTT"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/com_facebook_likeboxcountview_border_color"
+        android:padding="7dp"
+        android:text="Tout sélectionner"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold" />
+
+    <com.matemaker.rtt.app.Classes.Adapter.ExtendedListView
+        android:id="@+id/lvAmisRTT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvSelectAll"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/background_light" />
+
+</RelativeLayout>

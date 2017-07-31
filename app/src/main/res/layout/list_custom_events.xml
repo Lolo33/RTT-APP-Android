@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content" android:layout_height="wrap_content"
     android:id="@+id/LL_Fond"
-    android:orientation="vertical">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/cardview_light_background"
+    android:orientation="vertical"
+    android:weightSum="1">
 
     <RelativeLayout
+        android:id="@+id/rlFondEvent"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_weight="5.37"
         android:padding="5dp">
 
         <TextView
@@ -15,7 +21,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/TV_Titre"
+            android:layout_below="@+id/textView10"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:paddingLeft="5dp"
             android:text="Match"
             android:textColor="@android:color/background_light">
@@ -26,6 +34,7 @@
             android:id="@+id/TV_Titre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:maxLength="20"
             android:paddingLeft="5dp"
             android:text="Match Amical"
@@ -39,6 +48,9 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/TV_Titre"
             android:layout_alignParentEnd="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:paddingRight="5dp"
             android:text="12.00 €"
             android:textColor="@android:color/background_light"
@@ -51,18 +63,71 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/TV_Tournoi"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
             android:paddingLeft="5dp"
-            android:text="de 12h à "
+            android:text="Le 27/12/2017"
             android:textColor="@android:color/background_light" />
 
         <TextView
             android:id="@+id/TV_NbEquipes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_above="@+id/TV_Date"
             android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:text="TextView"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="0 / 10 joueurs"
             android:textColor="@android:color/background_light" />
+
+        <TextView
+            android:id="@+id/TV_Heure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/TV_Date"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:paddingLeft="5dp"
+            android:text="de 16 h 00 à 18 h 00"
+            android:textColor="@android:color/background_light" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/TV_Orga"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/TV_Date"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center_vertical"
+            android:text=">"
+            android:textColor="@android:color/background_light"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/TV_Orga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/TV_Heure"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="10dp"
+            android:paddingLeft="5dp"
+            android:text="Organisateur"
+            android:textColor="@android:color/background_light"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_alignEnd="@+id/TV_Prix"
+            android:layout_alignStart="@+id/TV_Titre"
+            android:layout_below="@+id/TV_Titre"
+            android:background="@color/colorBgFb" />
 
     </RelativeLayout>
 

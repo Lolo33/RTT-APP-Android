@@ -10,6 +10,17 @@
     <color name="colorBgFb">#f5f5f5</color>
     <color name="colorSnow">#fffafa</color>
     <color name="colorGainsboro">#dcdcdc</color>
-    <color name="colorTitre">#2f4f4f</color>
+    <color name="colorTitre">#34495e</color>
     <color name="IndianRed">#cd5c5c</color>
+    <color name="OrangeRed">#ff4500</color>
+    <color name="MidnightBlue">#191970</color>
+    <color name="SlateGray">#708090</color>
+
+    <color name="pressed_color">#16A086</color>
+    <color name="default_color">#ffffff</color>
+    <color name="colorEv">#16a085</color>
+    <color name="colorPrimaryPressed">#386386</color>
+    <color name="redPressed">#b04a4a</color>
+
 </resources>
+

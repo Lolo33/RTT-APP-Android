@@ -3,13 +3,68 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <CheckBox
-        android:id="@+id/checkBox"
+    <TextView
+        android:id="@+id/tvTitreOrga"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_marginEnd="93dp"
-        android:layout_marginTop="143dp"
-        android:text="CheckBox" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Organiser un évenement"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/ACTV_Lieux"
+        android:layout_alignStart="@+id/ACTV_Lieux"
+        android:layout_below="@+id/tvTitreOrga"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:padding="10dp"
+        android:textAlignment="center" />
+
+    <AutoCompleteTextView
+        android:id="@+id/ACTV_Lieux"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:dropDownSelector="@color/colorPrimary"
+        android:hint="Complexe souhaité"
+        android:textAlignment="center"
+        android:theme="@style/EditTextTheme" />
+
+    <Button
+        android:id="@+id/btnValiderLieu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/inputDescriptif"
+        android:layout_alignStart="@+id/inputDescriptif"
+        android:layout_below="@+id/inputDescriptif"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
+        android:text="Valider"
+        android:textColor="@android:color/background_light" />
+
+    <EditText
+        android:id="@+id/inputDescriptif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/ACTV_Lieux"
+        android:layout_alignStart="@+id/ACTV_Lieux"
+        android:layout_below="@+id/ACTV_Lieux"
+        android:layout_marginTop="19dp"
+        android:ems="10"
+        android:hint="Description de l'évenement"
+        android:inputType="textMultiLine"
+        android:lines="2"
+        android:textAlignment="center"
+        android:theme="@style/EditTextTheme" />
+
 </RelativeLayout>
